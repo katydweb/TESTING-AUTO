@@ -24,6 +24,8 @@ def calcular_promedio(notas):
     if len(notas) == 0:
         raise ValueError("Error. La cantidad de notas a procesar debe ser mayor a 0")
     for nota in notas:
+            if not isinstance(nota, (int, float)):
+                raise ValueError("Error. El valor ingresado no es un número")
             if nota < 0 or nota > 10:
                 raise ValueError("Error: La nota ingresada debe ser entre 0 y 10")
     promedio = sum(notas) / len(notas)
