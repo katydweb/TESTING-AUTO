@@ -17,10 +17,15 @@ def solicitar_notas():
                         print("Error. El valor ingresado no es un número")
             return notas
         else:
-            print("La cantidad de notas a procesar debe ser mayor a 0")
+            print("Error: La cantidad de notas a procesar debe ser mayor a 0")
 
 
 def calcular_promedio(notas):
+    if len(notas) == 0:
+        raise ValueError("Error. La cantidad de notas a procesar debe ser mayor a 0")
+    for nota in notas:
+            if nota < 0 or nota > 10:
+                raise ValueError("Error: La nota ingresada debe ser entre 0 y 10")
     promedio = sum(notas) / len(notas)
     return promedio
     
